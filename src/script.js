@@ -19,28 +19,28 @@ camera.position.set(0, 5, 30);
 // camera.position.z = 1000;
 
 const scene = new THREE.Scene();
-// scene.background = new THREE.Color(0xdddddd);
+scene.background = new THREE.Color(0xdddddd);
 
-const hlight = new THREE.AmbientLight(0x404040, 10);
+const hlight = new THREE.AmbientLight(0x404040, 1);
 scene.add(hlight);
 
-const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
 directionalLight.position.set(-50, 50, 100);
 directionalLight.castShadow = true;
 scene.add(directionalLight);
 
-const light = new THREE.PointLight(0xc4c4c4, 2);
-light.position.set(0, 300, 500);
-scene.add(light);
-const light2 = new THREE.PointLight(0xc4c4c4, 2);
-light2.position.set(500, 100, 0);
-scene.add(light2);
+// const light = new THREE.PointLight(0xc4c4c4, 2);
+// light.position.set(0, 300, 500);
+// scene.add(light);
+// const light2 = new THREE.PointLight(0xc4c4c4, 2);
+// light2.position.set(500, 100, 0);
+// scene.add(light2);
 const light3 = new THREE.PointLight(0xc4c4c4, 2);
 light3.position.set(0, 100, -500);
 scene.add(light3);
-const light4 = new THREE.PointLight(0xc4c4c4, 2);
-light4.position.set(-500, 300, 500);
-scene.add(light4);
+// const light4 = new THREE.PointLight(0xc4c4c4, 2);
+// light4.position.set(-500, 300, 500);
+// scene.add(light4);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -53,10 +53,10 @@ controls.update();
 const loader = new GLTFLoader();
 
 loader.load(
-  "car/audi.glb",
+  "avatar/woman1.glb",
   function (gltf) {
-    const car = gltf.scene.children[0];
-    car.scale.set(0.5, 0.5, 0.5);
+    const obj0 = gltf.scene.children[0];
+    obj0.scale.set(5, 5, 5);
     scene.add(gltf.scene);
     animate();
   },
